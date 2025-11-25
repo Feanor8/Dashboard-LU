@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.plot.ly/plotly-3.3.0.min.js" charset="utf-8"></script>
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <meta charset="utf-8">
+  <title>Statistikdaten 2024 | Ludwigshafen am Rhein</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-light bg-gradient">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="{{ url_for('static', filename='img/wappen.svg') }}" alt="Wappen" height="50px"
+            class="d-inline-block">
+
+          Statistikdaten 2024 | Ludwigshafen am Rhein</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Alterspyramide
+            </div>
+            <div class="card-body">
+              Alterspyramide hier
+            </div>
+          </div>
+
+        </div>
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Karte
+            </div>
+            <div class="card-body">
+              Karte hier
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Bevölkerungsprognose
+            </div>
+            <div class="card-body">
+              Bevölkerungsprognose Diagramm hier
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Wohnberechtigte Bevölkerung
+
+            </div>
+            <div class="card-body">
+              <h1 class="display-6">{{ stats.gesamt }}</h1>
+              
+            </div>
+          </div>
+
+          <!--  
+        <h1>Users:</h1>
+  <ul>
+  {% for user in users %}
+    <li>{{ user }}</li>
+  {% endfor %}
+  </ul>
+      <div id="gd"></div>-->
+        </div>
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Bevölkerung am Ort der Hauptwohnung
+            </div>
+            <div class="card-body">
+              <h1 class="display-6">{{ stats.hauptwohnsitz }}</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Bevölkerung am Ort der Zweitwohnung
+            </div>
+            <div class="card-body">
+              <h1 class="display-6">{{ stats.sekundärwohnsitz }}</h1>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Frauenanteil in %
+
+            </div>
+            <div class="card-body">
+            <h1 class="display-6"> {{stats.anteil_weiblich}}</h1>   
+            </div>
+          </div>
+
+        </div>
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Männeranteil in %
+
+            </div>
+            <div class="card-body">
+             <h1 class="display-6">{{stats.anteil_maennlich}}</h1>  
+            </div>
+          </div>
+        </div>
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Durchschnittsalter in Jahren
+
+            </div>
+            <div class="card-body">
+             <h1 class="display-6"> {{stats.altersdurchschnitt}}  </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Anzahl an Geburten
+
+            </div>
+            <div class="card-body">
+               <h1 class="display-6">{{stats.geburten}}</h1>
+            </div>
+          </div>
+
+        </div>
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Anzahl an Sterbefällen
+            </div>
+            <div class="card-body">
+               <h1 class="display-6"> {{stats.tode}}</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Saldo Geburten und Sterbefälle
+
+            </div>
+            <div class="card-body">
+                   <h1 class="display-6">{{stats.geburten_saldo}}</h1>
+               
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Zuzüge
+
+            </div>
+            <div class="card-body">
+             <h1 class="display-6">{{stats.hinzugezogen}}</h1>
+      
+            </div>
+          </div>
+
+        </div>
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Fortzüge
+            </div>
+            <div class="card-body">
+              <h1 class="display-6">{{stats.fortgezogen}}</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Saldo Zu- und Fortzüge
+
+            </div>
+            <div class="card-body">
+               <h1 class="display-6">{{stats.zuzug_saldo}}</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col">
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Bevölkerung nach Migrationshintergrund
+
+            </div>
+            <div class="card-body">
+              <div id="migra_pie"></div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Häufigstes Bezugsland von Personen mit MIgrationshintergrund Tortendiagramm
+
+            </div>
+            <div class="card-body">
+              <div id="migra_pie_country"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col">
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Familienstand
+
+            </div>
+            <div class="card-body">
+              <div id="family_pie"></div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Religionszugehörigeit
+            </div>
+            <div class="card-body">
+              <div id="religion_pie"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col">
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Privathaushalte
+
+            </div>
+            <div class="card-body">
+              <div id="private_households"></div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Wohnungen
+            </div>
+            <div class="card-body">
+              <div id="apartments"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col">
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Sinusmilieu
+
+            </div>
+            <div class="card-body">
+              <div id="sinusmilieus"></div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Wahl
+            </div>
+            <div class="card-body">
+              Balkendiagramm
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row mt-4">
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Sozialversicherungspflichtig Beschäftigte
+
+            </div>
+            <div class="card-body">
+         <h1 class="display-6">{{stats.sopf_beschäftigte}}</h1>     
+            </div>
+          </div>
+
+        </div>
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Beschäftigungsquote in %
+            </div>
+            <div class="card-body">
+             <h1 class="display-6"> {{stats.beschäftigung_prozent}}</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Arbeitslose absolut
+
+            </div>
+            <div class="card-body">
+              <h1 class="display-6">{{stats.arbeitslose_nummer}} </h1>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Arbeitslosenquotient in %
+
+            </div>
+            <div class="card-body">
+                 <h1 class="display-6">{{stats.arbeitslose_prozent}}</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row mt-4">
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Durchschnittliche Kaufkraft pro Person in Euro
+
+            </div>
+            <div class="card-body">
+            <h1 class="display-6">{{stats.kaufkraft_person}}</h1>
+            </div>
+          </div>
+
+        </div>
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Kaufkraftindex pro Person
+            </div>
+            <div class="card-body">
+               <h1 class="display-6"> {{stats.kaufkraft_person_index}} </h1>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Durchschnittliche Kaufkraft pro Haushalt in Euro
+
+            </div>
+            <div class="card-body">
+                 <h1 class="display-6">{{stats.kaufkraft_haushalt}}</h1>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Kaufkraftindex pro Haushalt
+            </div>
+            <div class="card-body">
+               <h1 class="display-6">{{stats.kaufkraft_haushalt_index}}</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+<div id="chart"></div>
+
+  <!-- Inline: sichere Übergabe der Plotly-JSON an das Frontend -->
+  <script>
+    // window.PLOT_DATA enthält die vom Server erzeugte Figure-JSON
+    window.PLOT_DATA = {{ graphs_json | safe }};
+  </script>
+
+  <!-- Ausgelagerte JS, die Plot rendert -->
+  <script src="{{ url_for('static', filename='js/charts.js') }}" defer></script>
