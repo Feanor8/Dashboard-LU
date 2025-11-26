@@ -11,10 +11,50 @@ import json
 app = Flask(__name__)
 
 CSV_PATH_KOSIS = os.path.join(os.path.dirname(__file__), 'data', 'k500.csv')
+CSV_PATH_ELECTIONS = os.path.join(os.path.dirname(__file__), 'data', 'wahlen.csv')
 
+ 
+def create_figure_for_mapping(df, mapping):
+    # (deine vorhandene Implementierung unverändert)
+    if isinstance(mapping, str):
+        return chart.pie_chart_from_column(df, mapping, top_n=8, title=mapping)
+
+    if isinstance(mapping, dict):
+        t = mapping.get("type", "pie").lower()
+        col = mapping.get("col") or mapping.get("column")
+        top_n = mapping.get("top_n", 8)
+
+        if t == "pie":
+            return chart.pie_chart_from_column(df, col, top_n=top_n, title=mapping.get("title",""))
+        elif t in ("bar", "election", "election_bar"):
+            return chart.election_bar_chart(
+                df,
+                party_col=col,
+                value_col=mapping.get("value_col"),
+                top_n=mapping.get("top_n", 12),
+                title=mapping.get("title", "")
+            )
+        else:
+            import plotly.graph_objects as go
+            fig = go.Figure()
+            fig.update_layout(title=f"Unbekannter Chart-Typ: {t}")
+            return fig
+
+    import plotly.graph_objects as go
+    fig = go.Figure()
+    fig.update_layout(title="Ungültige Chart-Definition")
+    return fig
 @app.route('/')
 def index():
     df = pd.read_csv(CSV_PATH_KOSIS)
+    df_el = pd.read_csv(CSV_PATH_ELECTIONS)
+
+    # sources-Mapping: name -> DataFrame ( DB-Handler etc. sein)
+    sources = {
+        "kosis": df,
+        "elections": df_el,
+        # "other": load_other_source(), ...
+    }
 
     stats = {
         "gesamt": stat.num_population(df),
@@ -39,28 +79,40 @@ def index():
         "kaufkraft_haushalt_index": stat.num_population_buying_index_household(df)
     }
 
-    html = {
-        
-    }
     
     # Mapping: DOM-ID -> Spaltenname von CSV oder Datenbankspalte (oder Funktion)
     charts_map = {
-        "family_pie": "einFamiliebestand",
-        "religion_pie": "Religion",
-        "migra_pie": "Religion",
-        "migra_pie_country": "Religion",
-        "private_households": "Religion",
-        "apartments": "Religion",
-        "sinusmilieus": "Religion",
-        "latest_election": "Religion"
+    "family_pie": "einFamiliebestand",     # default: pie
+    "religion_pie": {"type": "pie", "col": "Religion", "top_n": 8, "source": "kosis"},
+    "migra_pie": {"type": "pie", "col": "Religion", "source": "kosis"},
+    "migra_pie_country": {"type": "pie", "col": "Religion", "top_n": 10, "source": "kosis"},
+    "private_households": {"type": "pie", "col": "Religion", "source": "kosis"},
+    "apartments": {"type": "pie", "col": "Religion", "source": "kosis"},
+    "sinus_milieus": {"type": "pie", "col": "Religion", "source": "kosis"},
+    "latest_election": {"type": "bar", "col": "Partei", "value_col": "Stimmen_Prozent", "top_n": 12, "source": "elections"},    # weitere Karten...
     }
 
     graphs = {}
-    for dom_id, col in charts_map.items():
-        fig = chart.pie_chart_from_column(df, col, top_n=8, title=col)
+    for dom_id, mapping in charts_map.items():
+        # Ermittle die Quelle (default 'kosis')
+        source_name = None
+        if isinstance(mapping, dict):
+            source_name = mapping.get("source")
+        # Wenn mapping ist nur String, du kannst optional eine Default-Quelle definieren:
+        if source_name is None:
+            source_name = "kosis"
+
+        used_df = sources.get(source_name)
+        if used_df is None:
+            # Falls Quelle fehlt: erstelle leere Figure mit Hinweis
+            import plotly.graph_objects as go
+            fig = go.Figure()
+            fig.update_layout(title=f"Keine Datenquelle '{source_name}' gefunden")
+        else:
+            fig = create_figure_for_mapping(used_df, mapping)
+
         graphs[dom_id] = fig.to_dict()
 
     graphs_json = json.dumps(graphs, cls=plotly.utils.PlotlyJSONEncoder)
-
 
     return render_template('index.html', stats=stats, graphs_json=graphs_json)

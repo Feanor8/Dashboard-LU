@@ -9,17 +9,23 @@
     crossorigin="anonymous"></script>
   <script src="https://cdn.plot.ly/plotly-3.3.0.min.js" charset="utf-8"></script>
    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+   
+   <link href="{{ url_for('static', filename='fontawesome/css/fontawesome.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='fontawesome/css/regular.css') }}" rel="stylesheet" />
+   <link href="{{ url_for('static', filename='fontawesome/css/solid.css') }}" rel="stylesheet" />
+   <link href="{{ url_for('static', filename='fontawesome/css/sharp-thin.css') }}" rel="stylesheet" />
+   <link href="{{ url_for('static', filename='fontawesome/css/sharp-duotone-thin.css') }}" rel="stylesheet" />
   <meta charset="utf-8">
   <title>Statistikdaten 2024 | Ludwigshafen am Rhein</title>
 </head>
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg bg-light bg-gradient">
+    <nav class="navbar navbar-expand-lg bg-dark-subtle border-bottom border-dark-subtle">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand fw-bold text-secondary" href="#">
           <img src="{{ url_for('static', filename='img/wappen.svg') }}" alt="Wappen" height="50px"
-            class="d-inline-block">
+            class="d-inline-block me-1">
 
           Statistikdaten 2024 | Ludwigshafen am Rhein</a>
       </div>
@@ -27,12 +33,12 @@
   </header>
   <main>
     <div class="container-fluid">
-      <div class="row">
+      <div class="row mt-2">
         <div class="col">
 
           <div class="card shadow-sm">
-            <div class="card-header">
-              Alterspyramide
+            <div class="card-header text-center text-body-secondary">
+             <strong>Alterspyramide</strong>
             </div>
             <div class="card-body">
               Alterspyramide hier
@@ -43,8 +49,8 @@
         <div class="col">
 
           <div class="card shadow-sm">
-            <div class="card-header">
-              Karte
+            <div class="card-header text-center text-body-secondary">
+              <strong>Ludwigshafen auf einen Blick</strong>
             </div>
             <div class="card-body">
               Karte hier
@@ -53,12 +59,12 @@
 
         </div>
       </div>
-      <div class="row mt-4">
+      <div class="row mt-2">
         <div class="col">
 
           <div class="card shadow-sm">
-            <div class="card-header">
-              Bevölkerungsprognose
+            <div class="card-header text-center text-body-secondary">
+              <strong>Bevölkerungsprognose</strong>
             </div>
             <div class="card-body">
               Bevölkerungsprognose Diagramm hier
@@ -68,7 +74,7 @@
         </div>
       </div>
 
-      <div class="row mt-4">
+      <div class="row mt-2">
         <div class="col">
 
           <div class="card shadow-sm">
@@ -77,19 +83,9 @@
 
             </div>
             <div class="card-body">
-              <h1 class="display-6">{{ stats.gesamt }}</h1>
-              
-            </div>
+              <h1 class="display-6"><i class="fa-solid fa-users"></i>{{ stats.gesamt }}</h1>
+             </div>
           </div>
-
-          <!--  
-        <h1>Users:</h1>
-  <ul>
-  {% for user in users %}
-    <li>{{ user }}</li>
-  {% endfor %}
-  </ul>
-      <div id="gd"></div>-->
         </div>
         <div class="col">
 
@@ -98,7 +94,7 @@
               Bevölkerung am Ort der Hauptwohnung
             </div>
             <div class="card-body">
-              <h1 class="display-6">{{ stats.hauptwohnsitz }}</h1>
+              <h1 class="display-6"><i class="fa-solid fa-building"></i>{{ stats.hauptwohnsitz }}</h1>
             </div>
           </div>
         </div>
@@ -109,13 +105,13 @@
               Bevölkerung am Ort der Zweitwohnung
             </div>
             <div class="card-body">
-              <h1 class="display-6">{{ stats.sekundärwohnsitz }}</h1>
+              <h1 class="display-6"><i class="fa-regular fa-building"></i>{{ stats.sekundärwohnsitz }}</h1>
             </div>
           </div>
 
         </div>
       </div>
-      <div class="row mt-4">
+      <div class="row mt-2">
         <div class="col">
 
           <div class="card shadow-sm">
@@ -124,7 +120,7 @@
 
             </div>
             <div class="card-body">
-            <h1 class="display-6"> {{stats.anteil_weiblich}}</h1>   
+            <h1 class="display-6"><i class="fa-solid fa-venus"></i>{{stats.anteil_weiblich}}</h1>   
             </div>
           </div>
 
@@ -137,7 +133,7 @@
 
             </div>
             <div class="card-body">
-             <h1 class="display-6">{{stats.anteil_maennlich}}</h1>  
+             <h1 class="display-6"><i class="fa-solid fa-mars"></i>{{stats.anteil_maennlich}}</h1>  
             </div>
           </div>
         </div>
@@ -149,12 +145,12 @@
 
             </div>
             <div class="card-body">
-             <h1 class="display-6"> {{stats.altersdurchschnitt}}  </h1>
+             <h1 class="display-6"><i class="fa-solid fa-cake-candles"></i>{{stats.altersdurchschnitt}}</h1>
             </div>
           </div>
         </div>
       </div>
-      <div class="row mt-4">
+      <div class="row mt-2">
         <div class="col">
 
           <div class="card shadow-sm">
@@ -194,7 +190,7 @@
         </div>
       </div>
 
-      <div class="row mt-4">
+      <div class="row mt-2">
         <div class="col">
 
           <div class="card shadow-sm">
@@ -234,7 +230,7 @@
         </div>
       </div>
 
-      <div class="row mt-4">
+      <div class="row mt-2">
         <div class="col">
           <div class="card shadow-sm">
             <div class="card-header">
@@ -263,7 +259,7 @@
         </div>
       </div>
 
-      <div class="row mt-4">
+      <div class="row mt-2">
         <div class="col">
           <div class="card shadow-sm">
             <div class="card-header">
@@ -291,7 +287,7 @@
         </div>
       </div>
 
-      <div class="row mt-4">
+      <div class="row mt-2">
         <div class="col">
           <div class="card shadow-sm">
             <div class="card-header">
@@ -319,7 +315,7 @@
         </div>
       </div>
 
-      <div class="row mt-4">
+      <div class="row mt-2">
         <div class="col">
           <div class="card shadow-sm">
             <div class="card-header">
@@ -327,7 +323,7 @@
 
             </div>
             <div class="card-body">
-              <div id="sinusmilieus"></div>
+              <div id="sinus_milieus"></div>
             </div>
           </div>
         </div>
@@ -341,7 +337,7 @@
               Wahl
             </div>
             <div class="card-body">
-              Balkendiagramm
+              <div id="latest_election"></div>
             </div>
           </div>
         </div>
@@ -349,7 +345,7 @@
 
 
 
-      <div class="row mt-4">
+      <div class="row mt-2">
         <div class="col">
 
           <div class="card shadow-sm">
@@ -402,7 +398,7 @@
       </div>
 
 
-      <div class="row mt-4">
+      <div class="row mt-2">
         <div class="col">
 
           <div class="card shadow-sm">
@@ -447,16 +443,14 @@
               Kaufkraftindex pro Haushalt
             </div>
             <div class="card-body">
-               <h1 class="display-6">{{stats.kaufkraft_haushalt_index}}</h1>
+               <h1 class="display-6">
+                {{stats.kaufkraft_haushalt_index}}</h1>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-
-
-<div id="chart"></div>
 
   <!-- Inline: sichere Übergabe der Plotly-JSON an das Frontend -->
   <script>
