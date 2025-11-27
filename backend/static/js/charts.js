@@ -32,4 +32,15 @@ document.addEventListener('DOMContentLoaded', function () {
       el.innerText = 'Fehler beim Rendern des Charts.';
     }
   });
+
+  // ⬇️ ADD YOUR FETCH CODE HERE
+  fetch("data/Stadtteil.html")
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("karte-container").innerHTML = html;
+    })
+    .catch(error => {
+      console.error("Fehler beim Laden der Datei:", error);
+    });
+
 });

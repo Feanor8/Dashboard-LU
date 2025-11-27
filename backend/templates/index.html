@@ -29,28 +29,32 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col">
+          <div class="card shadow-sm">
+            <div class="card-header">
+              Stadtteile
+            </div>
+            <div class="card-body" style="padding:0;">
+              <iframe
+                src="{{ url_for('static', filename='data/Stadtteil.html') }}"
+                style="width:100%; height:700px; border:none;">
+              </iframe>
+            </div>
+          </div>
 
+
+        </div>
+        <div class="col">
           <div class="card shadow-sm">
             <div class="card-header">
               Alterspyramide
             </div>
-            <div class="card-body">
-              Alterspyramide hier
+            <div class="card-body" style="padding:0;">
+              <iframe
+                src="{{ url_for('static', filename='data/Alter_pyramide.html') }}"
+                style="width:100%; height:700px; border:none;">
+              </iframe>
             </div>
           </div>
-
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Karte
-            </div>
-            <div class="card-body">
-              Karte hier
-            </div>
-          </div>
-
         </div>
       </div>
       <div class="row mt-4">
@@ -60,8 +64,11 @@
             <div class="card-header">
               Bevölkerungsprognose
             </div>
-            <div class="card-body">
-              Bevölkerungsprognose Diagramm hier
+            <div class="card-body" style="padding:0;">
+              <iframe
+                src="{{ url_for('static', filename='data/population_forecast_interactive.html') }}"
+                style="width:100%; height:700px; border:none;">
+              </iframe>
             </div>
           </div>
 
@@ -78,11 +85,11 @@
             </div>
             <div class="card-body">
               <h1 class="display-6">{{ stats.gesamt }}</h1>
-              
+
             </div>
           </div>
 
-          <!--  
+          <!--
         <h1>Users:</h1>
   <ul>
   {% for user in users %}
@@ -124,7 +131,7 @@
 
             </div>
             <div class="card-body">
-            <h1 class="display-6"> {{stats.anteil_weiblich}}</h1>   
+            <h1 class="display-6"> {{stats.anteil_weiblich}}</h1>
             </div>
           </div>
 
@@ -137,7 +144,7 @@
 
             </div>
             <div class="card-body">
-             <h1 class="display-6">{{stats.anteil_maennlich}}</h1>  
+             <h1 class="display-6">{{stats.anteil_maennlich}}</h1>
             </div>
           </div>
         </div>
@@ -188,7 +195,7 @@
             </div>
             <div class="card-body">
                    <h1 class="display-6">{{stats.geburten_saldo}}</h1>
-               
+
             </div>
           </div>
         </div>
@@ -204,7 +211,7 @@
             </div>
             <div class="card-body">
              <h1 class="display-6">{{stats.hinzugezogen}}</h1>
-      
+
             </div>
           </div>
 
@@ -358,7 +365,7 @@
 
             </div>
             <div class="card-body">
-         <h1 class="display-6">{{stats.sopf_beschäftigte}}</h1>     
+         <h1 class="display-6">{{stats.sopf_beschäftigte}}</h1>
             </div>
           </div>
 
