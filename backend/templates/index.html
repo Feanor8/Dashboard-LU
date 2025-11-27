@@ -21,7 +21,7 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg bg-dark-subtle border-bottom border-dark-subtle">
+    <nav class="navbar navbar-expand-lg bg-primary-subtle border-bottom border-dark-subtle">
       <div class="container-fluid">
         <a class="navbar-brand fw-bold text-secondary" href="#">
           <img src="{{ url_for('static', filename='img/wappen.svg') }}" alt="Wappen" height="50px"
@@ -33,12 +33,12 @@
   </header>
   <main>
     <div class="container-fluid">
-      <div class="row mt-2">
+      <div class="row gx-2 mt-2">
         <div class="col">
 
           <div class="card shadow-sm">
-            <div class="card-header text-center text-body-secondary">
-             <strong>Alterspyramide</strong>
+            <div class="card-header text-center fw-bold text-body-secondary bg-primary-subtle">
+             Alterspyramide
             </div>
             <div class="card-body">
               Alterspyramide hier
@@ -49,8 +49,8 @@
         <div class="col">
 
           <div class="card shadow-sm">
-            <div class="card-header text-center text-body-secondary">
-              <strong>Ludwigshafen auf einen Blick</strong>
+            <div class="card-header fw-bold text-center text-body-secondary bg-primary-subtle">
+              Ludwigshafen auf einen Blick
             </div>
             <div class="card-body">
               Karte hier
@@ -63,8 +63,8 @@
         <div class="col">
 
           <div class="card shadow-sm">
-            <div class="card-header text-center text-body-secondary">
-              <strong>Bevölkerungsprognose</strong>
+            <div class="card-header fw-bold text-center text-body-secondary bg-primary-subtle">
+              Bevölkerungsprognose
             </div>
             <div class="card-body">
               Bevölkerungsprognose Diagramm hier
@@ -74,166 +74,130 @@
         </div>
       </div>
 
-      <div class="row mt-2">
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Wohnberechtigte Bevölkerung
-
-            </div>
-            <div class="card-body">
-              <h1 class="display-6"><i class="fa-solid fa-users"></i>{{ stats.gesamt }}</h1>
-             </div>
-          </div>
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Bevölkerung am Ort der Hauptwohnung
-            </div>
-            <div class="card-body">
-              <h1 class="display-6"><i class="fa-solid fa-building"></i>{{ stats.hauptwohnsitz }}</h1>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Bevölkerung am Ort der Zweitwohnung
-            </div>
-            <div class="card-body">
-              <h1 class="display-6"><i class="fa-regular fa-building"></i>{{ stats.sekundärwohnsitz }}</h1>
-            </div>
-          </div>
-
-        </div>
+<div class="row gx-2 mt-2">
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-users me-2"></i>{{ stats.gesamt }}</h1>
+        <p class="h6">Wohnberechtigte Bevölkerung</p>
       </div>
-      <div class="row mt-2">
-        <div class="col">
+    </div>
+  </div>
 
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Frauenanteil in %
-
-            </div>
-            <div class="card-body">
-            <h1 class="display-6"><i class="fa-solid fa-venus"></i>{{stats.anteil_weiblich}}</h1>   
-            </div>
-          </div>
-
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Männeranteil in %
-
-            </div>
-            <div class="card-body">
-             <h1 class="display-6"><i class="fa-solid fa-mars"></i>{{stats.anteil_maennlich}}</h1>  
-            </div>
-          </div>
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Durchschnittsalter in Jahren
-
-            </div>
-            <div class="card-body">
-             <h1 class="display-6"><i class="fa-solid fa-cake-candles"></i>{{stats.altersdurchschnitt}}</h1>
-            </div>
-          </div>
-        </div>
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-building me-1"></i>{{ stats.hauptwohnsitz }}</h1>
+        <p class="h6">Bevölkerung am Ort der Hauptwohnung</p>
       </div>
-      <div class="row mt-2">
-        <div class="col">
+    </div>
+  </div>
 
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Anzahl an Geburten
-
-            </div>
-            <div class="card-body">
-               <h1 class="display-6">{{stats.geburten}}</h1>
-            </div>
-          </div>
-
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Anzahl an Sterbefällen
-            </div>
-            <div class="card-body">
-               <h1 class="display-6"> {{stats.tode}}</h1>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Saldo Geburten und Sterbefälle
-
-            </div>
-            <div class="card-body">
-                   <h1 class="display-6">{{stats.geburten_saldo}}</h1>
-               
-            </div>
-          </div>
-        </div>
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-regular fa-building me-1"></i>{{ stats.sekundärwohnsitz }}</h1>
+        <p class="h6">Bevölkerung am Ort der Zweitwohnung</p>
       </div>
+    </div>
+  </div>
+</div>
 
-      <div class="row mt-2">
-        <div class="col">
 
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Zuzüge
-
-            </div>
-            <div class="card-body">
-             <h1 class="display-6">{{stats.hinzugezogen}}</h1>
-      
-            </div>
-          </div>
-
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Fortzüge
-            </div>
-            <div class="card-body">
-              <h1 class="display-6">{{stats.fortgezogen}}</h1>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Saldo Zu- und Fortzüge
-
-            </div>
-            <div class="card-body">
-               <h1 class="display-6">{{stats.zuzug_saldo}}</h1>
-            </div>
-          </div>
-        </div>
+<div class="row gx-2 mt-2">
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-venus"></i>{{ stats.anteil_weiblich }}</h1>
+        <p class="h6">Frauenanteil in %</p>
       </div>
+    </div>
+  </div>
 
-      <div class="row mt-2">
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-mars me-1"></i>{{ stats.anteil_maennlich }}</h1>
+        <p class="h6">Männeranteil in %</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-cake-candles me-1"></i>{{ stats.altersdurchschnitt }}</h1>
+        <p class="h6">Durchschnittsalter in Jahren</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row gx-2 mt-2">
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-baby"></i>{{ stats.geburten }}</h1>
+        <p class="h6">Anzahl an Geburten</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-cross"></i>{{ stats.tode }}</h1>
+        <p class="h6">Anzahl an Sterbefällen</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-arrow-right-arrow-left me-2"></i>{{ stats.geburten_saldo }}</h1>
+        <p class="h6">Saldo Geburten und Sterbefälle</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row gx-2 mt-2">
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-truck-ramp-box me-2"></i>{{ stats.hinzugezogen }}</h1>
+        <p class="h6">Zuzüge</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-truck-moving me-2"></i>{{ stats.fortgezogen }}</h1>
+        <p class="h6">Fortzüge</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-arrow-right-arrow-left me-2"></i>{{ stats.zuzug_saldo }}</h1>
+        <p class="h6">Saldo Zu- und Fortzüge</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <div class="row gx-2 mt-2">
         <div class="col">
           <div class="card shadow-sm">
-            <div class="card-header">
+            <div class="card-header text-center text-body-secondary fw-bold bg-primary-subtle">
               Bevölkerung nach Migrationshintergrund
 
             </div>
@@ -248,7 +212,7 @@
         <div class="col">
 
           <div class="card shadow-sm">
-            <div class="card-header">
+            <div class="card-header fw-bold text-center text-body-secondary bg-primary-subtle">
               Häufigstes Bezugsland von Personen mit MIgrationshintergrund Tortendiagramm
 
             </div>
@@ -259,10 +223,10 @@
         </div>
       </div>
 
-      <div class="row mt-2">
+      <div class="row gx-2 mt-2">
         <div class="col">
           <div class="card shadow-sm">
-            <div class="card-header">
+            <div class="card-header fw-bold text-center text-body-secondary bg-primary-subtle">
               Familienstand
 
             </div>
@@ -277,7 +241,7 @@
         <div class="col">
 
           <div class="card shadow-sm">
-            <div class="card-header">
+            <div class="card-header fw-bold text-center text-body-secondary bg-primary-subtle">
               Religionszugehörigeit
             </div>
             <div class="card-body">
@@ -287,10 +251,10 @@
         </div>
       </div>
 
-      <div class="row mt-2">
+      <div class="row gx-2 mt-2">
         <div class="col">
           <div class="card shadow-sm">
-            <div class="card-header">
+            <div class="card-header fw-bold text-center text-body-secondary bg-primary-subtle">
               Privathaushalte
 
             </div>
@@ -305,7 +269,7 @@
         <div class="col">
 
           <div class="card shadow-sm">
-            <div class="card-header">
+            <div class="card-header fw-bold text-center text-body-secondary bg-primary-subtle">
               Wohnungen
             </div>
             <div class="card-body">
@@ -315,10 +279,10 @@
         </div>
       </div>
 
-      <div class="row mt-2">
+      <div class="row gx-2 mt-2">
         <div class="col">
           <div class="card shadow-sm">
-            <div class="card-header">
+            <div class="card-header fw-bold text-center text-body-secondary bg-primary-subtle">
               Sinusmilieu
 
             </div>
@@ -333,8 +297,8 @@
         <div class="col">
 
           <div class="card shadow-sm">
-            <div class="card-header">
-              Wahl
+            <div class="card-header fw-bold text-center text-body-secondary bg-primary-subtle">
+              Oberbürgermeisterwahl 2025 
             </div>
             <div class="card-body">
               <div id="latest_election"></div>
@@ -344,111 +308,83 @@
       </div>
 
 
-
-      <div class="row mt-2">
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Sozialversicherungspflichtig Beschäftigte
-
-            </div>
-            <div class="card-body">
-         <h1 class="display-6">{{stats.sopf_beschäftigte}}</h1>     
-            </div>
-          </div>
-
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Beschäftigungsquote in %
-            </div>
-            <div class="card-body">
-             <h1 class="display-6"> {{stats.beschäftigung_prozent}}</h1>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Arbeitslose absolut
-
-            </div>
-            <div class="card-body">
-              <h1 class="display-6">{{stats.arbeitslose_nummer}} </h1>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Arbeitslosenquotient in %
-
-            </div>
-            <div class="card-body">
-                 <h1 class="display-6">{{stats.arbeitslose_prozent}}</h1>
-            </div>
-          </div>
-        </div>
+<div class="row gx-2 mt-2">
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-wallet me-2"></i>{{ stats.sopf_beschäftigte }}</h1>
+        <p class="h6">Sozialversicherungspflichtig Beschäftigte</p>
       </div>
+    </div>
+  </div>
 
-
-      <div class="row mt-2">
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Durchschnittliche Kaufkraft pro Person in Euro
-
-            </div>
-            <div class="card-body">
-            <h1 class="display-6">{{stats.kaufkraft_person}}</h1>
-            </div>
-          </div>
-
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Kaufkraftindex pro Person
-            </div>
-            <div class="card-body">
-               <h1 class="display-6"> {{stats.kaufkraft_person_index}} </h1>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Durchschnittliche Kaufkraft pro Haushalt in Euro
-
-            </div>
-            <div class="card-body">
-                 <h1 class="display-6">{{stats.kaufkraft_haushalt}}</h1>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Kaufkraftindex pro Haushalt
-            </div>
-            <div class="card-body">
-               <h1 class="display-6">
-                {{stats.kaufkraft_haushalt_index}}</h1>
-            </div>
-          </div>
-        </div>
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-briefcase me-2"></i>{{ stats.beschäftigung_prozent }}</h1>
+        <p class="h6">Beschäftigungsquote in %</p>
       </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-house-chimney-user me-2"></i>{{ stats.arbeitslose_nummer }}</h1>
+        <p class="h6">Arbeitslose absolut</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-house-chimney-user me-2"></i>{{ stats.arbeitslose_prozent }}</h1>
+        <p class="h6">Arbeitslosenquotient in %</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row gx-2 mt-2">
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-coins me-2"></i>{{ stats.kaufkraft_person }}</h1>
+        <p class="h6">Durchschnittliche Kaufkraft pro Person in Euro</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-bag-shopping me-2"></i>{{ stats.kaufkraft_person_index }}</h1>
+        <p class="h6">Kaufkraftindex pro Person</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-coins me-2"></i>{{ stats.kaufkraft_haushalt }}</h1>
+        <p class="h6">Durchschnittliche Kaufkraft pro Haushalt in Euro</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-bag-shopping me-2"></i>{{ stats.kaufkraft_haushalt_index }}</h1>
+        <p class="h6">Kaufkraftindex pro Haushalt</p>
+      </div>
+    </div>
+  </div>
+</div>
+
     </div>
 
 
