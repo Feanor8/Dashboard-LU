@@ -9,17 +9,23 @@
     crossorigin="anonymous"></script>
   <script src="https://cdn.plot.ly/plotly-3.3.0.min.js" charset="utf-8"></script>
    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+   <link href="{{ url_for('static', filename='fontawesome/css/fontawesome.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='fontawesome/css/regular.css') }}" rel="stylesheet" />
+   <link href="{{ url_for('static', filename='fontawesome/css/solid.css') }}" rel="stylesheet" />
+   <link href="{{ url_for('static', filename='fontawesome/css/sharp-thin.css') }}" rel="stylesheet" />
+   <link href="{{ url_for('static', filename='fontawesome/css/sharp-duotone-thin.css') }}" rel="stylesheet" />
   <meta charset="utf-8">
   <title>Statistikdaten 2024 | Ludwigshafen am Rhein</title>
 </head>
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg bg-light bg-gradient">
+    <nav class="navbar navbar-expand-lg bg-primary-subtle border-bottom border-dark-subtle">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand fw-bold text-secondary" href="#">
           <img src="{{ url_for('static', filename='img/wappen.svg') }}" alt="Wappen" height="50px"
-            class="d-inline-block">
+            class="d-inline-block me-1">
 
           Statistikdaten 2024 | Ludwigshafen am Rhein</a>
       </div>
@@ -27,7 +33,7 @@
   </header>
   <main>
     <div class="container-fluid">
-      <div class="row">
+      <div class="row gx-2 mt-2">
         <div class="col">
           <div class="card shadow-sm">
             <div class="card-header">
@@ -45,8 +51,8 @@
         </div>
         <div class="col">
           <div class="card shadow-sm">
-            <div class="card-header">
-              Alterspyramide
+            <div class="card-header text-center fw-bold text-body-secondary bg-primary-subtle">
+             Alterspyramide
             </div>
             <div class="card-body" style="padding:0;">
               <iframe
@@ -55,13 +61,14 @@
               </iframe>
             </div>
           </div>
+
         </div>
       </div>
-      <div class="row mt-4">
+      <div class="row mt-2">
         <div class="col">
 
           <div class="card shadow-sm">
-            <div class="card-header">
+            <div class="card-header fw-bold text-center text-body-secondary bg-primary-subtle">
               Bevölkerungsprognose
             </div>
             <div class="card-body" style="padding:0;">
@@ -122,8 +129,8 @@
 
         </div>
       </div>
-      <div class="row mt-4">
-        <div class="col">
+    </div>
+  </div>
 
           <div class="card shadow-sm">
             <div class="card-header">
@@ -161,8 +168,8 @@
           </div>
         </div>
       </div>
-      <div class="row mt-4">
-        <div class="col">
+    </div>
+  </div>
 
           <div class="card shadow-sm">
             <div class="card-header">
@@ -200,9 +207,10 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
 
-      <div class="row mt-4">
-        <div class="col">
 
           <div class="card shadow-sm">
             <div class="card-header">
@@ -240,11 +248,93 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
-      <div class="row mt-4">
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-mars me-1"></i>{{ stats.anteil_maennlich }}</h1>
+        <p class="h6">Männeranteil in %</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-cake-candles me-1"></i>{{ stats.altersdurchschnitt }}</h1>
+        <p class="h6">Durchschnittsalter in Jahren</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row gx-2 mt-2">
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-baby"></i>{{ stats.geburten }}</h1>
+        <p class="h6">Anzahl an Geburten</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-cross"></i>{{ stats.tode }}</h1>
+        <p class="h6">Anzahl an Sterbefällen</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-arrow-right-arrow-left me-2"></i>{{ stats.geburten_saldo }}</h1>
+        <p class="h6">Saldo Geburten und Sterbefälle</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row gx-2 mt-2">
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-truck-ramp-box me-2"></i>{{ stats.hinzugezogen }}</h1>
+        <p class="h6">Zuzüge</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-truck-moving me-2"></i>{{ stats.fortgezogen }}</h1>
+        <p class="h6">Fortzüge</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-arrow-right-arrow-left me-2"></i>{{ stats.zuzug_saldo }}</h1>
+        <p class="h6">Saldo Zu- und Fortzüge</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <div class="row gx-2 mt-2">
         <div class="col">
           <div class="card shadow-sm">
-            <div class="card-header">
+            <div class="card-header text-center text-body-secondary fw-bold bg-primary-subtle">
               Bevölkerung nach Migrationshintergrund
 
             </div>
@@ -259,7 +349,7 @@
         <div class="col">
 
           <div class="card shadow-sm">
-            <div class="card-header">
+            <div class="card-header fw-bold text-center text-body-secondary bg-primary-subtle">
               Häufigstes Bezugsland von Personen mit MIgrationshintergrund Tortendiagramm
 
             </div>
@@ -270,10 +360,10 @@
         </div>
       </div>
 
-      <div class="row mt-4">
+      <div class="row gx-2 mt-2">
         <div class="col">
           <div class="card shadow-sm">
-            <div class="card-header">
+            <div class="card-header fw-bold text-center text-body-secondary bg-primary-subtle">
               Familienstand
 
             </div>
@@ -288,7 +378,7 @@
         <div class="col">
 
           <div class="card shadow-sm">
-            <div class="card-header">
+            <div class="card-header fw-bold text-center text-body-secondary bg-primary-subtle">
               Religionszugehörigeit
             </div>
             <div class="card-body">
@@ -298,10 +388,10 @@
         </div>
       </div>
 
-      <div class="row mt-4">
+      <div class="row gx-2 mt-2">
         <div class="col">
           <div class="card shadow-sm">
-            <div class="card-header">
+            <div class="card-header fw-bold text-center text-body-secondary bg-primary-subtle">
               Privathaushalte
 
             </div>
@@ -316,7 +406,7 @@
         <div class="col">
 
           <div class="card shadow-sm">
-            <div class="card-header">
+            <div class="card-header fw-bold text-center text-body-secondary bg-primary-subtle">
               Wohnungen
             </div>
             <div class="card-body">
@@ -326,15 +416,15 @@
         </div>
       </div>
 
-      <div class="row mt-4">
+      <div class="row gx-2 mt-2">
         <div class="col">
           <div class="card shadow-sm">
-            <div class="card-header">
+            <div class="card-header fw-bold text-center text-body-secondary bg-primary-subtle">
               Sinusmilieu
 
             </div>
             <div class="card-body">
-              <div id="sinusmilieus"></div>
+              <div id="sinus_milieus"></div>
             </div>
           </div>
         </div>
@@ -344,11 +434,11 @@
         <div class="col">
 
           <div class="card shadow-sm">
-            <div class="card-header">
-              Wahl
+            <div class="card-header fw-bold text-center text-body-secondary bg-primary-subtle">
+              Oberbürgermeisterwahl 2025
             </div>
             <div class="card-body">
-              Balkendiagramm
+              <div id="latest_election"></div>
             </div>
           </div>
         </div>
@@ -460,10 +550,77 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-briefcase me-2"></i>{{ stats.beschäftigung_prozent }}</h1>
+        <p class="h6">Beschäftigungsquote in %</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-house-chimney-user me-2"></i>{{ stats.arbeitslose_nummer }}</h1>
+        <p class="h6">Arbeitslose absolut</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-house-chimney-user me-2"></i>{{ stats.arbeitslose_prozent }}</h1>
+        <p class="h6">Arbeitslosenquotient in %</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 
+<div class="row gx-2 mt-2">
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-coins me-2"></i>{{ stats.kaufkraft_person }}</h1>
+        <p class="h6">Durchschnittliche Kaufkraft pro Person in Euro</p>
+      </div>
+    </div>
+  </div>
 
-<div id="chart"></div>
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-bag-shopping me-2"></i>{{ stats.kaufkraft_person_index }}</h1>
+        <p class="h6">Kaufkraftindex pro Person</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-coins me-2"></i>{{ stats.kaufkraft_haushalt }}</h1>
+        <p class="h6">Durchschnittliche Kaufkraft pro Haushalt in Euro</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-bag-shopping me-2"></i>{{ stats.kaufkraft_haushalt_index }}</h1>
+        <p class="h6">Kaufkraftindex pro Haushalt</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+
 
   <!-- Inline: sichere Übergabe der Plotly-JSON an das Frontend -->
   <script>
