@@ -2,7 +2,7 @@ from flask import Flask, render_template
 import pandas as pd
 import os
 import py.stat as stat   # Alle Statistik als numerischer Wert
-import py.charts as chart
+import py.charts as chart # Alle Diagramme
 import plotly
 import plotly.express as px
 import json
@@ -15,7 +15,7 @@ CSV_PATH_ELECTIONS = os.path.join(os.path.dirname(__file__), 'data', 'wahlen.csv
 
  
 def create_figure_for_mapping(df, mapping):
-    # (deine vorhandene Implementierung unverändert)
+
     if isinstance(mapping, str):
         return chart.pie_chart_from_column(df, mapping, top_n=8, title=mapping)
 
@@ -44,16 +44,17 @@ def create_figure_for_mapping(df, mapping):
     fig = go.Figure()
     fig.update_layout(title="Ungültige Chart-Definition")
     return fig
+
 @app.route('/')
 def index():
     df = pd.read_csv(CSV_PATH_KOSIS)
     df_el = pd.read_csv(CSV_PATH_ELECTIONS)
 
-    # sources-Mapping: name -> DataFrame ( DB-Handler etc. sein)
+    # sources-Mapping: name -> DataFrame ( kann auch DB-Handler etc. sein)
     sources = {
         "kosis": df,
         "elections": df_el,
-        # "other": load_other_source(), ...
+        # "other": load_other_dbsource(), ... | Wenn ich wieder auf dem Dienstlaptop Adminrechte hab
     }
 
     stats = {
@@ -94,17 +95,16 @@ def index():
 
     graphs = {}
     for dom_id, mapping in charts_map.items():
-        # Ermittle die Quelle (default 'kosis')
+        # Quelle (default 'kosis', jegliche Quelle denkbar)
         source_name = None
         if isinstance(mapping, dict):
             source_name = mapping.get("source")
-        # Wenn mapping ist nur String, du kannst optional eine Default-Quelle definieren:
         if source_name is None:
             source_name = "kosis"
 
         used_df = sources.get(source_name)
         if used_df is None:
-            # Falls Quelle fehlt: erstelle leere Figure mit Hinweis
+            # wenn Quelle fehlt: erstelle leere Figure mit Hinweis als fallback
             import plotly.graph_objects as go
             fig = go.Figure()
             fig.update_layout(title=f"Keine Datenquelle '{source_name}' gefunden")

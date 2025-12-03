@@ -36,7 +36,7 @@
       <div class="row gx-2 mt-2">
         <div class="col">
           <div class="card shadow-sm">
-            <div class="card-header">
+            <div class="card-header text-center fw-bold text-body-secondary bg-primary-subtle">
               Stadtteile
             </div>
             <div class="card-body" style="padding:0;">
@@ -46,8 +46,6 @@
               </iframe>
             </div>
           </div>
-
-
         </div>
         <div class="col">
           <div class="card shadow-sm">
@@ -81,172 +79,45 @@
 
         </div>
       </div>
+ 
+  
 
-      <div class="row mt-4">
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Wohnberechtigte Bevölkerung
-
-            </div>
-            <div class="card-body">
-              <h1 class="display-6">{{ stats.gesamt }}</h1>
-
-            </div>
-          </div>
-
-          <!--
-        <h1>Users:</h1>
-  <ul>
-  {% for user in users %}
-    <li>{{ user }}</li>
-  {% endfor %}
-  </ul>
-      <div id="gd"></div>-->
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Bevölkerung am Ort der Hauptwohnung
-            </div>
-            <div class="card-body">
-              <h1 class="display-6">{{ stats.hauptwohnsitz }}</h1>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Bevölkerung am Ort der Zweitwohnung
-            </div>
-            <div class="card-body">
-              <h1 class="display-6">{{ stats.sekundärwohnsitz }}</h1>
-            </div>
-          </div>
-
-        </div>
+<div class="row gx-2 mt-2">
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-users me-2"></i>{{ stats.gesamt }}</h1>
+        <p class="h6">Wohnberechtigte Bevölkerung</p>
       </div>
     </div>
   </div>
 
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Frauenanteil in %
-
-            </div>
-            <div class="card-body">
-            <h1 class="display-6"> {{stats.anteil_weiblich}}</h1>
-            </div>
-          </div>
-
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Männeranteil in %
-
-            </div>
-            <div class="card-body">
-             <h1 class="display-6">{{stats.anteil_maennlich}}</h1>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Durchschnittsalter in Jahren
-
-            </div>
-            <div class="card-body">
-             <h1 class="display-6"> {{stats.altersdurchschnitt}}  </h1>
-            </div>
-          </div>
-        </div>
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-building me-1"></i>{{ stats.hauptwohnsitz }}</h1>
+        <p class="h6">Bevölkerung am Ort der Hauptwohnung</p>
       </div>
     </div>
   </div>
 
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Anzahl an Geburten
-
-            </div>
-            <div class="card-body">
-               <h1 class="display-6">{{stats.geburten}}</h1>
-            </div>
-          </div>
-
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Anzahl an Sterbefällen
-            </div>
-            <div class="card-body">
-               <h1 class="display-6"> {{stats.tode}}</h1>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Saldo Geburten und Sterbefälle
-
-            </div>
-            <div class="card-body">
-                   <h1 class="display-6">{{stats.geburten_saldo}}</h1>
-
-            </div>
-          </div>
-        </div>
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-regular fa-building me-1"></i>{{ stats.sekundärwohnsitz }}</h1>
+        <p class="h6">Bevölkerung am Ort der Zweitwohnung</p>
       </div>
     </div>
   </div>
 </div>
 
 
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Zuzüge
-
-            </div>
-            <div class="card-body">
-             <h1 class="display-6">{{stats.hinzugezogen}}</h1>
-
-            </div>
-          </div>
-
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Fortzüge
-            </div>
-            <div class="card-body">
-              <h1 class="display-6">{{stats.fortgezogen}}</h1>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Saldo Zu- und Fortzüge
-
-            </div>
-            <div class="card-body">
-               <h1 class="display-6">{{stats.zuzug_saldo}}</h1>
-            </div>
-          </div>
-        </div>
+<div class="row gx-2 mt-2">
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-venus"></i>{{ stats.anteil_weiblich }}</h1>
+        <p class="h6">Frauenanteil in %</p>
       </div>
     </div>
   </div>
@@ -300,7 +171,6 @@
   </div>
 </div>
 
-
 <div class="row gx-2 mt-2">
   <div class="col">
     <div class="card shadow-sm bg-primary text-light">
@@ -330,36 +200,7 @@
   </div>
 </div>
 
-
-      <div class="row gx-2 mt-2">
-        <div class="col">
-          <div class="card shadow-sm">
-            <div class="card-header text-center text-body-secondary fw-bold bg-primary-subtle">
-              Bevölkerung nach Migrationshintergrund
-
-            </div>
-            <div class="card-body">
-              <div id="migra_pie"></div>
-            </div>
-          </div>
-        </div>
-
-
-
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header fw-bold text-center text-body-secondary bg-primary-subtle">
-              Häufigstes Bezugsland von Personen mit MIgrationshintergrund Tortendiagramm
-
-            </div>
-            <div class="card-body">
-              <div id="migra_pie_country"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+ 
       <div class="row gx-2 mt-2">
         <div class="col">
           <div class="card shadow-sm">
@@ -446,108 +287,15 @@
 
 
 
-      <div class="row mt-4">
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Sozialversicherungspflichtig Beschäftigte
-
-            </div>
-            <div class="card-body">
-         <h1 class="display-6">{{stats.sopf_beschäftigte}}</h1>
-            </div>
-          </div>
-
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Beschäftigungsquote in %
-            </div>
-            <div class="card-body">
-             <h1 class="display-6"> {{stats.beschäftigung_prozent}}</h1>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Arbeitslose absolut
-
-            </div>
-            <div class="card-body">
-              <h1 class="display-6">{{stats.arbeitslose_nummer}} </h1>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Arbeitslosenquotient in %
-
-            </div>
-            <div class="card-body">
-                 <h1 class="display-6">{{stats.arbeitslose_prozent}}</h1>
-            </div>
-          </div>
-        </div>
-      </div>
+ 
 
 
-      <div class="row mt-4">
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Durchschnittliche Kaufkraft pro Person in Euro
-
-            </div>
-            <div class="card-body">
-            <h1 class="display-6">{{stats.kaufkraft_person}}</h1>
-            </div>
-          </div>
-
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Kaufkraftindex pro Person
-            </div>
-            <div class="card-body">
-               <h1 class="display-6"> {{stats.kaufkraft_person_index}} </h1>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Durchschnittliche Kaufkraft pro Haushalt in Euro
-
-            </div>
-            <div class="card-body">
-                 <h1 class="display-6">{{stats.kaufkraft_haushalt}}</h1>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-
-          <div class="card shadow-sm">
-            <div class="card-header">
-              Kaufkraftindex pro Haushalt
-            </div>
-            <div class="card-body">
-               <h1 class="display-6">{{stats.kaufkraft_haushalt_index}}</h1>
-            </div>
-          </div>
-        </div>
+<div class="row gx-2 mt-2">
+  <div class="col">
+    <div class="card shadow-sm bg-primary text-light">
+      <div class="card-body">
+        <h1 class="display-6 fw-bold"><i class="fa-solid fa-wallet me-2"></i>{{ stats.sopf_beschäftigte }}</h1>
+        <p class="h6">Sozialversicherungspflichtig Beschäftigte</p>
       </div>
     </div>
   </div>
@@ -618,10 +366,7 @@
     </div>
   </div>
 </div>
-
     </div>
-
-
   <!-- Inline: sichere Übergabe der Plotly-JSON an das Frontend -->
   <script>
     // window.PLOT_DATA enthält die vom Server erzeugte Figure-JSON
